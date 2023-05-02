@@ -8,6 +8,7 @@ const headerStyle: React.CSSProperties = {
   textAlign: "center",
   color: "rgb(255, 255, 255)",
   height: "15vh",
+  width:"100vw",
   backgroundColor: '#3ba0e9',
   textTransform: "capitalize",
   display: "flex",
@@ -20,6 +21,7 @@ const headerStyle: React.CSSProperties = {
 const contentStyle: React.CSSProperties = {
   textAlign: 'center',
   height: "75vh",
+  width:"75vw",
   lineHeight: '10vh',
   color: '#fff',
   backgroundColor: "rgb(125, 188, 234)",
@@ -32,19 +34,12 @@ const contentStyle: React.CSSProperties = {
 const siderStyle: React.CSSProperties = {
   textAlign: 'center',
   lineHeight: '10vh',
-  width:'30vw',
-  color: '#fff',
-  backgroundColor: "rgb(72, 139, 189)",
-  display: "flex",
-  alignContent: "center",
-  alignItems: "center",
-  justifyContent: "center",
-  padding:"0rem"
 };
 
 const footerStyle: React.CSSProperties = {
   textAlign: 'center',
   height: '10vh',
+  width:"100vw",
   color: '#fff',
   backgroundColor: '#3ba0e9',
   display: "flex",
@@ -58,8 +53,15 @@ function App() {
     <Layout>
       <Header style={headerStyle}>Minhas Informações</Header>
       <Layout>
-      <Sider style={siderStyle}>
-        <Menu defaultSelectedKeys={['1']} mode="inline" style={{ width: '10vw' }}
+      <Sider style={siderStyle} width={'25vh'}>
+        <Menu defaultSelectedKeys={['1']} mode="inline" 
+        style={{minHeight:'75vh',     
+              display: "flex",
+              alignContent: "flex-start",
+              justifyContent: "flex-start",
+              alignItems: "flex-end",
+              flexDirection: "column",
+              antMenuSubmenuTitle:{with:'100%'},}}
       items={menuOptions}/>
       </Sider>
         <Content style={contentStyle}>Content</Content>
