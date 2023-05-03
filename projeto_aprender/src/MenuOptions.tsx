@@ -4,7 +4,7 @@ import {
 
     UserOutlined,
   } from '@ant-design/icons';
-  import type { MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
 import React from 'react';
 
   type MenuItem = Required<MenuProps>['items'][number];
@@ -14,7 +14,8 @@ import React from 'react';
     key: React.Key,
     icon?: React.ReactNode,
     children?: MenuItem[],
-  ): MenuItem {
+    path?: React.ReactNode,
+    ): MenuItem {
     return {
       key,
       icon,

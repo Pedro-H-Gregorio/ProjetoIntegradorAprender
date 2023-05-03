@@ -1,15 +1,18 @@
-import React from 'react';
-import {Layout, Menu} from 'antd'
-import menuOptions from './MenuOptions.tsx'
+import React from "react";
+import { Layout, Menu } from "antd";
+import items from "./MenuOptions.tsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Idade from "./pages/Idade.tsx";
+import Nome from "./pages/Nome.tsx";
 
-const {Header, Footer, Sider, Content} = Layout
+const { Header, Footer, Sider, Content } = Layout;
 
 const headerStyle: React.CSSProperties = {
   textAlign: "center",
   color: "rgb(255, 255, 255)",
   height: "15vh",
-  width:"100vw",
-  backgroundColor: '#3ba0e9',
+  width: "100vw",
+  backgroundColor: "#3ba0e9",
   textTransform: "capitalize",
   display: "flex",
   alignContent: "center",
@@ -19,11 +22,11 @@ const headerStyle: React.CSSProperties = {
 };
 
 const contentStyle: React.CSSProperties = {
-  textAlign: 'center',
+  textAlign: "center",
   height: "75vh",
-  width:"75vw",
-  lineHeight: '10vh',
-  color: '#fff',
+  width: "75vw",
+  lineHeight: "10vh",
+  color: "#fff",
   backgroundColor: "rgb(125, 188, 234)",
   display: "flex",
   alignContent: "center",
@@ -32,20 +35,28 @@ const contentStyle: React.CSSProperties = {
 };
 
 const siderStyle: React.CSSProperties = {
-  textAlign: 'center',
-  lineHeight: '10vh',
+  textAlign: "center",
+  lineHeight: "10vh",
 };
 
 const footerStyle: React.CSSProperties = {
-  textAlign: 'center',
-  height: '10vh',
-  width:"100vw",
-  color: '#fff',
-  backgroundColor: '#3ba0e9',
+  textAlign: "center",
+  height: "10vh",
+  width: "100vw",
+  color: "#fff",
+  backgroundColor: "#3ba0e9",
   display: "flex",
   alignContent: "center",
   alignItems: "center",
   justifyContent: "center",
+};
+
+const rotas = {
+  "1": "/",
+  "2": "/idade",
+  "3": "/mais_informacoes",
+  "4": "/profissional",
+  "5": "/portifolio",
 };
 
 function App() {
@@ -53,18 +64,22 @@ function App() {
     <Layout>
       <Header style={headerStyle}>Minhas Informações</Header>
       <Layout>
-      <Sider style={siderStyle} width={'25vh'}>
-        <Menu defaultSelectedKeys={['1']} mode="inline" 
-        style={{minHeight:'75vh',     
-              display: "flex",
-              alignContent: "flex-start",
-              justifyContent: "flex-start",
-              alignItems: "flex-end",
-              flexDirection: "column",
-              antMenuSubmenuTitle:{with:'100%'},}}
-      items={menuOptions}/>
-      </Sider>
-        <Content style={contentStyle}>Content</Content>
+        <BrowserRouter>
+          <Sider style={siderStyle} width={"15vw"}>
+            <Menu
+              style={{ minHeight: "75vh" }}
+              defaultSelectedKeys={["1"]}
+              mode="inline"
+              items={items}
+            />
+          </Sider>
+          <Content style={contentStyle}>
+            <Routes>
+              <Route path="/" element={<Nome />} />
+              <Route path="/idade" element={<Idade />} />
+            </Routes>
+          </Content>
+        </BrowserRouter>
       </Layout>
       <Footer style={footerStyle}>@enrique_cost</Footer>
     </Layout>
