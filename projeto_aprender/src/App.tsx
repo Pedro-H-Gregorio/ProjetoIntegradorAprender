@@ -4,9 +4,10 @@ import items from "./MenuOptions.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Idade from "./pages/Idade.tsx";
 import Nome from "./pages/Nome.tsx";
-import { useNavigate } from "react-router-dom";
-// eslint-disable-next-line react-hooks/rules-of-hooks
-const Navigate = useNavigate()
+import MaisInformacoes from "./pages/MaisInformacoes.tsx";
+import Profissional from "./pages/Profissional.tsx";
+import Portifolio from "./pages/Portifolio.tsx";
+
 
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -55,34 +56,30 @@ const footerStyle: React.CSSProperties = {
   justifyContent: "center",
 };
 
-const rotas = {
-  "1": "/",
-  "2": "/idade",
-  "3": "/mais_informacoes",
-  "4": "/profissional",
-  "5": "/portifolio",
-};
-
 function App() {
+
   return (
     <Layout>
       <Header style={headerStyle}>Minhas Informações</Header>
       <Layout>
         <BrowserRouter>
-          <Sider style={siderStyle} width={"15vw"} >
+          <Sider style={siderStyle} width={"15vw"}>
             <Menu
               style={{ minHeight: "75vh" }}
-              // defaultSelectedKeys={["1"]}
-              defaultOpenKeys={['sub1']}
-              onClick={(e)=>Navigate(rotas[e.key])}
+              defaultSelectedKeys={["1"]}
+              defaultOpenKeys={["sub1"]}
+              // onClick={(e: any) => Navigate(rotas[e.key])}
               mode="inline"
               items={items}
             />
-          </Sider>
+          </Sider>  
           <Content style={contentStyle}>
             <Routes>
               <Route path="/" element={<Nome />} />
               <Route path="/idade" element={<Idade />} />
+              <Route path="/mais_informacoes" element={<MaisInformacoes />} />
+              <Route path="/profissional" element={<Profissional />} />
+              <Route path="/portifolio" element={<Portifolio />} />
             </Routes>
           </Content>
         </BrowserRouter>

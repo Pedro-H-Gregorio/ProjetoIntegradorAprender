@@ -6,6 +6,7 @@ import {
   } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
   type MenuItem = Required<MenuProps>['items'][number];
   
@@ -25,12 +26,12 @@ import React from 'react';
   
   const items: MenuItem[] = [
       getItem('Pessoal', 'sub1', <UserOutlined />, [
-        getItem('Nome', '1'),
-        getItem('Idade', '2'),
-        getItem('Mais informações', '3'),
+        getItem(<NavLink to="/" key="1">Nome</NavLink>, '1'),
+        getItem(<NavLink to="/idade" key="2">Idade</NavLink>, '2'),
+        getItem(<NavLink to="/mais_informacoes" key="3">Mais Informações</NavLink>, '3'),
       ]),
-    getItem('Profissional', '4', <FileOutlined />),
-    getItem('Portifólio', '5', <DesktopOutlined />),
+    getItem(<NavLink to="/profissional" key="4">Profissional</NavLink>, '4', <FileOutlined />),
+    getItem(<NavLink to="/portifolio" key="2">Portifólio</NavLink>, '5', <DesktopOutlined />),
   ];
 
 export default items
