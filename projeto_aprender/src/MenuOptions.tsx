@@ -14,7 +14,6 @@ import React from 'react';
     key: React.Key,
     icon?: React.ReactNode,
     children?: MenuItem[],
-    path?: React.ReactNode,
     ): MenuItem {
     return {
       key,

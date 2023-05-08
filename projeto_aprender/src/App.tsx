@@ -4,6 +4,10 @@ import items from "./MenuOptions.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Idade from "./pages/Idade.tsx";
 import Nome from "./pages/Nome.tsx";
+import { useNavigate } from "react-router-dom";
+// eslint-disable-next-line react-hooks/rules-of-hooks
+const Navigate = useNavigate()
+
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -65,10 +69,12 @@ function App() {
       <Header style={headerStyle}>Minhas Informações</Header>
       <Layout>
         <BrowserRouter>
-          <Sider style={siderStyle} width={"15vw"}>
+          <Sider style={siderStyle} width={"15vw"} >
             <Menu
               style={{ minHeight: "75vh" }}
-              defaultSelectedKeys={["1"]}
+              // defaultSelectedKeys={["1"]}
+              defaultOpenKeys={['sub1']}
+              onClick={(e)=>Navigate(rotas[e.key])}
               mode="inline"
               items={items}
             />
