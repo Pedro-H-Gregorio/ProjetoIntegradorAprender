@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "git-pull": "git pull",
-    "git-push": "git add ."
+    "git-push": "git add . && git commit"
   },
   "eslintConfig": {
     "extends": [
