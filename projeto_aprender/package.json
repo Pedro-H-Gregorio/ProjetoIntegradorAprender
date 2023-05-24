@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "git-push": "(git add . && git commit --message 'refresh' && git push) && (echo protocol=https && echo host=github.com) | git credential-manager-core erase"
+    "git-push": "git add . && git commit --message 'refresh' && git push && sleep 6 && (echo protocol=https && echo host=github.com) | git credential-manager-core erase"
   },
   "eslintConfig": {
     "extends": [
