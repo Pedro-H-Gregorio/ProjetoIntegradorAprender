@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "git-push": "git add .; git commit -m 'refresh branch'; git push"
+    "git-pull": "git pull",
+    "git-push": "git add ."
   },
   "eslintConfig": {
     "extends": [
